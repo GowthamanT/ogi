@@ -518,24 +518,18 @@ header {
   color:var(--primary-content);
 }
 
-.tophead {
-  animation-name: fadingText;
-  animation-duration: 700ms;
-}
-
 /* Animation */
 
 .animation-init {
   opacity: 0;
   transform:translateY(20px);
-  /* transition-duration: 200ms; */
   transition: all 500ms ease-out;
 }
 
 .animate {
   opacity: 1;
   transform:translateY(0px);
-  transition-delay: 100ms;
+  transition-delay: 300ms;
 }
 
 @media (min-width: 991px) { 

@@ -111,7 +111,7 @@ var animationElements = document.querySelectorAll('.animation-init');
 
 window.addEventListener('scroll', function () {
   animationElements.forEach(items => {
-    if(isInViewPort(items)) {
+    if(isVisible(items)) {
       items.classList.add('animate');
     }
     else {
@@ -131,6 +131,21 @@ function isInViewPort(element) {
       return true;
   } else {
       return false;
+  }
+}
+
+function isVisible (ele) {
+  const { top, bottom } = ele.getBoundingClientRect();
+  const vHeight = (window.innerHeight || document.documentElement.clientHeight);
+
+  if (
+    (top > 0 || bottom > 0) &&
+    top < vHeight
+  ) {
+    return true;
+  }
+  else {
+    return false;
   }
 }
 
