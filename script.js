@@ -107,7 +107,6 @@ function submit() {
 // Scroll Animation
 
 var animationElements = document.querySelectorAll('.animation-init');
-// console.log(animationElements);
 
 window.addEventListener('scroll', function () {
   animationElements.forEach(items => {
@@ -161,23 +160,23 @@ var timelineData2 = document.getElementById('timeline-data2');
 var timelineData3 = document.getElementById('timeline-data3');
 
 timelineData1.addEventListener('click',function () {
-  removeTimelineCssClass(0);
+  removeActiveTimelineCss(0);
 }, false);
 
 timelineData2.addEventListener('click',function (){
-  addTimelineCssClass(1);
-  removeTimelineCssClass(1);
+  addActiveTimelineCss(1);
+  removeActiveTimelineCss(1);
 }, false);
 
 timelineData3.addEventListener('click',function (){
-  addTimelineCssClass(2);
-  removeTimelineCssClass(2);
+  addActiveTimelineCss(2);
+  removeActiveTimelineCss(2);
 }, false);
 
 var progressCss;
 var totalTimelineChildren = timelineUl.children.length;
 
-function addTimelineCssClass(elementCount) {
+function addActiveTimelineCss(elementCount) {
   for(var i=1; i<=elementCount; i++) {
     timelineUl.children[i].classList.add('timeline-active');
     progressCss = 'ul-progress'+i;
@@ -185,7 +184,7 @@ function addTimelineCssClass(elementCount) {
   }
 }
 
-function removeTimelineCssClass(elementCount) {
+function removeActiveTimelineCss(elementCount) {
   for(var i=elementCount+1; i<totalTimelineChildren; i++) {
     timelineUl.children[i].classList.remove('timeline-active');
     progressCss = 'ul-progress'+i;
