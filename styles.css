@@ -332,6 +332,7 @@ header {
   letter-spacing: 1px;
   color:var(--primary-heading);
   text-transform: uppercase;
+  color:white;
 }
 
 .hero p {
