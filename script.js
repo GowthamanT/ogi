@@ -120,6 +120,7 @@ window.addEventListener('scroll', function () {
   });
 }, false);
 
+// Element fully visible in Viewport
 function isInViewPort(element) {
   var bounding = element.getBoundingClientRect();
   if (
@@ -134,6 +135,7 @@ function isInViewPort(element) {
   }
 }
 
+// Element partially visible in Viewport
 function isVisible (ele) {
   const { top, bottom } = ele.getBoundingClientRect();
   const vHeight = (window.innerHeight || document.documentElement.clientHeight);

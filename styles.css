@@ -667,6 +667,41 @@ header {
   color:var(--primary-content);
 }
 
+/* Mobiles */
+@media (max-width: 576px) { 
+  .timeline ul::after {
+    left: 40%;
+  }
+  .right-text {
+    left:40%;
+  }
+  
+  .left-text {
+    right:60%;
+  }
+  
+  .circle {
+    left:40%;
+  }
+}
+
+/* Tablets */
+@media (min-width: 576px) and (max-width: 768px) {
+  .timeline ul::after {
+    left: 45%;
+  }
+  .right-text {
+    left:45%;
+  }
+  
+  .left-text {
+    right:55%;
+  }
+  
+  .circle {
+    left:45%;
+  }
+}
 
 
 /***** Hiring *****/
