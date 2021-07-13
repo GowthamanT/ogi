@@ -4,14 +4,11 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+  font-family: ProximaNova, Arial, Helvetica, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: ProximaNova, Arial, Helvetica, sans-serif;
 }
 
 ul {
@@ -88,6 +85,10 @@ input:focus, textarea:focus {
   padding-bottom: 140px;
 }
 
+.mt-5 {
+  margin-top: 5px;
+}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -114,6 +115,10 @@ input:focus, textarea:focus {
 
 .mt-130 {
   margin-top: 130px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
 }
 
 .float-right {
@@ -298,6 +303,10 @@ header {
   border-bottom:1px solid var(--primary-design-color);
 }
 
+.nav-active {
+  border-bottom:1px solid var(--primary-design-color);
+}
+
 /* Laptops */
 @media (min-width: 991px) {
   .navbar {
@@ -332,7 +341,6 @@ header {
   letter-spacing: 1px;
   color:var(--primary-heading);
   text-transform: uppercase;
-  color:white;
 }
 
 .hero p {
@@ -628,20 +636,43 @@ input, textarea, btn {
 
 #name, #email {
   height: 50px;
+  padding:20px 0px 10px;
 }
 
-textarea::placeholder {
-  font-family: ProximaNova;
+#message {
+  height:150px;
+  padding:20px 0px 10px;
 }
 
-form {
-  position: relative;
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color:white;
+  transform: translateY(-20px);
+  transition: 0.2s ease-out;
 }
 
-form .btn {
-  position: absolute;
-  right:0px;
-  bottom: 30px;
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  transition: 0.2s ease-in;
+}
+
+textarea {
+  resize: none;
+  background: none;
+  border:none;
+}
+
+textarea::-webkit-scrollbar {
+  width:5px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--primary-design-color);
+  border-radius: 20px;
+}
+
+.textarea-group {
+  text-align: right;
 }
 
 .error {

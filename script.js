@@ -33,9 +33,16 @@ var emailValid = false;
 var messageValid = false;
 
 function usernameCheck() {
+
+  let filter = /^[a-zA-Z][a-zA-Z ]+[a-zA-Z]$/;
+
   if(username.value == "") {
     nameValid = false;
     showErrorFor('name','Name should not be Empty');
+  }
+  else if(!filter.test(username.value)) {
+    nameValid = false;
+    showErrorFor('name','Name should be Valid');
   }
   else {
     nameValid = true;
@@ -45,7 +52,7 @@ function usernameCheck() {
 
 function emailCheck() {
 
-  var filter = /^([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-])+\@(([a-zA-Z0-9\-]{3,6})+\.)+([a-zA-Z0-9]{3,4})+$/;
+  let filter = /^([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-])+\@(([a-zA-Z0-9\-]{3,6})+\.)+([a-zA-Z0-9]{3,4})+$/;
 
   if(email.value == "") {
     emailValid = false;
@@ -62,6 +69,7 @@ function emailCheck() {
 }
 
 function messageCheck() {
+
   if(message.value == "") {
     messageValid = false;
     showErrorFor('message','Message should not be Empty');
@@ -107,8 +115,12 @@ function submit() {
 // Scroll Animation
 
 var animationElements = document.querySelectorAll('.animation-init');
+var navLinks = document.querySelectorAll('.nav-link');
+
+var blockSections = document.querySelectorAll('.block-section');
 
 window.addEventListener('scroll', function () {
+
   animationElements.forEach(items => {
     if(isVisible(items)) {
       items.classList.add('animate');
@@ -117,6 +129,15 @@ window.addEventListener('scroll', function () {
       items.classList.remove('animate');
     }
   });
+
+  // NavLinks Highlight
+  blockSections.forEach(sections => {
+    if(isVisible(sections)) {
+      idValue = sections.getAttribute('id');
+      isSectionVisible();     
+    }
+  });
+
 }, false);
 
 // Element fully visible in Viewport
@@ -148,6 +169,45 @@ function isVisible (ele) {
   else {
     return false;
   }
+}
+
+function isSectionVisible() {
+
+  if(idValue=='home') {
+    navLinks[0].classList.add('nav-active');
+  }
+  else {
+    navLinks[0].classList.remove('nav-active');        
+  }
+
+  if(idValue=='aboutUs') {
+    navLinks[1].classList.add('nav-active');
+  }
+  else {
+    navLinks[1].classList.remove('nav-active');        
+  }
+
+  if(idValue=='services') {
+    navLinks[2].classList.add('nav-active');
+  }
+  else {
+    navLinks[2].classList.remove('nav-active');        
+  }
+
+  if(idValue=='jobs') {
+    navLinks[3].classList.add('nav-active');
+  }
+  else {
+    navLinks[3].classList.remove('nav-active');        
+  }
+
+  if(idValue=='contactUs') {
+    navLinks[4].classList.add('nav-active');
+  }
+  else {
+    navLinks[4].classList.remove('nav-active');        
+  }
+  
 }
 
 

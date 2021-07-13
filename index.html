@@ -8,6 +8,9 @@
   <!-- Css -->
   <link rel="stylesheet" href="styles.css">
 
+  <!-- Js -->
+  <script src="script.js" async></script>
+
 </head>
 <body>
   <!-- Header Section --> 
@@ -22,7 +25,7 @@
       <nav class="navbar lg-float-right" id="navbar">
         <ul class="nav-menu">
           <li>
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link nav-active">
               Home
             </a>
           </li>
@@ -54,7 +57,7 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="hero text-center bg-primary-color">
+    <section class="hero text-center block-section" id="home">
       <div class="container vertical-align-center">
         <h1>
           WELCOME TO FREE sketch template
@@ -66,7 +69,7 @@
     </section>
 
     <!-- About Us -->
-    <section class="about-us clearfix bg-primary-color" id="aboutUs">
+    <section class="about-us clearfix bg-primary-color block-section" id="aboutUs">
       <figure class="">
         <img src="images/about-us/about-us.png" alt="About us Banner" srcset="images/about-us/about-us@2x.png 2x" class="w-100 about-us-img">
       </figure>
@@ -122,7 +125,7 @@
     </section>
 
     <!-- Services -->
-    <section class="services pt-120 pb-140" id="services">
+    <section class="services pt-120 pb-140 block-section" id="services">
       <div class="container">
         <h2 class="title text-center animation-init">
           Our Services
@@ -211,7 +214,7 @@
     </section>
 
     <!-- Hiring -->
-    <section class="hiring clearfix bg-primary-color" id="jobs">
+    <section class="hiring clearfix bg-primary-color block-section" id="jobs">
       <figure class="">
         <img src="images/hiring/hiring.png" alt="Hiring Banner" srcset="images/hiring/hiring@2x.png 2x" class="w-100">
       </figure>
@@ -231,7 +234,7 @@
     </section>
 
     <!-- Contact Us -->
-    <section class="contact-us clearfix bg-primary-color" id="contactUs">
+    <section class="contact-us clearfix bg-primary-color block-section" id="contactUs">
       <map class="lg-float-right lg-w-50-vw h-100 mapwr">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.6568852011274!2d77.55942037898024!3d11.005576479075211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9a1fd4de8dfe1%3A0xa0969e922e318e10!2sKangayam%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1625657322414!5m2!1sen!2sin" allowfullscreen="" loading="lazy" class="w-100 h-100"></iframe>
       </map>
@@ -241,19 +244,26 @@
             Contact Us
           </h2>
           <form action="javascript:void(0);" class="mt-50" id="contact" method="post">
-            <input type="text" class="w-100 inputfield" placeholder="Name" id="name">
-            <p class="error name" id="n-error">Name is required</p>
-            <input type="email" class="mt-10 w-100 inputfield" placeholder="Email" id="email">
-            <p class="error email" id="e-error">Email is required</p>
-            <textarea name="message" rows="10" placeholder="Message" class="mt-20 w-100 inputfield" id="message"></textarea>
-            <p class="error message" id="m-error">Message is required</p>
-            <input type="submit" value="Contact us" class="btn submitbtn" id="submit" disabled>
+            <div class="form-group">
+              <input type="text" class="w-100 inputfield" placeholder="Name" id="name">
+              <p class="error name" id="n-error">Name is required</p>
+            </div>
+            <div class="form-group mt-5">
+              <input type="email" class="w-100 inputfield" placeholder="Email" id="email">
+              <p class="error email" id="e-error">Email is required</p>
+            </div>
+            <div class="form-group mt-5">
+              <div class="textarea-group inputfield">
+                <textarea name="message" placeholder="Message" class="w-100" id="message"></textarea>
+                <input type="submit" value="Contact us" class="btn submitbtn mt-10 mb-10" id="submit" disabled>
+              </div>
+              <p class="error message" id="m-error">Message is required</p>
+            </div>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
 </body>
 </html>
