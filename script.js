@@ -242,16 +242,24 @@ var timelineData1 = document.getElementById('timeline-data1');
 var timelineData2 = document.getElementById('timeline-data2');
 var timelineData3 = document.getElementById('timeline-data3');
 
+// Timeline slide Animation
+
+var timelineContentWrapper = document.querySelector('.timeline-content-wrapper');
+// console.log(timelineContentWrapper);
+
 timelineData1.addEventListener('click',function () {
+  timelineContentChange(0);
   removeActiveTimelineCss(0);
 }, false);
 
 timelineData2.addEventListener('click',function (){
+  timelineContentChange(1);
   addActiveTimelineCss(1);
   removeActiveTimelineCss(1);
 }, false);
 
 timelineData3.addEventListener('click',function (){
+  timelineContentChange(2);
   addActiveTimelineCss(2);
   removeActiveTimelineCss(2);
 }, false);
@@ -260,7 +268,7 @@ var progressCss;
 var totalTimelineChildren = timelineUl.children.length;
 
 function addActiveTimelineCss(elementCount) {
-  for(var i=1; i<=elementCount; i++) {
+  for(let i=1; i<=elementCount; i++) {
     timelineUl.children[i].classList.add('timeline-active');
     progressCss = 'ul-progress'+i;
     timelineUl.classList.add(progressCss);
@@ -268,9 +276,20 @@ function addActiveTimelineCss(elementCount) {
 }
 
 function removeActiveTimelineCss(elementCount) {
-  for(var i=elementCount+1; i<totalTimelineChildren; i++) {
+  for(let i=elementCount+1; i<totalTimelineChildren; i++) {
     timelineUl.children[i].classList.remove('timeline-active');
     progressCss = 'ul-progress'+i;
     timelineUl.classList.remove(progressCss);
+  }
+}
+
+function timelineContentChange(elementCount) {
+  for(let i=0; i< timelineContentWrapper.children.length;i++) {
+    if(i == elementCount) {
+      timelineContentWrapper.children[i].classList.add('timeline-content-active');
+    }
+    else {
+      timelineContentWrapper.children[i].classList.remove('timeline-content-active');
+    }
   }
 }

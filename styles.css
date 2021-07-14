@@ -388,6 +388,10 @@ header {
 
 /***** Timeline *****/
 
+.timeline {
+  overflow-x: hidden;
+}
+
 .timeline ul {
   position: relative;
   padding-top: 20px;
@@ -498,6 +502,25 @@ header {
   color:var(--primary-content);
 }
 
+.timeline-content-init {
+  display: none;
+}
+
+.timeline-content-active {
+  display: block;
+  animation: slideFromRight;
+  animation-duration: 1s;
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
 /* Mobiles */
 @media (max-width: 576px) { 
   .timeline ul::after {
@@ -517,7 +540,7 @@ header {
 }
 
 /* Tablets */
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 577px) and (max-width: 768px) {
   .timeline ul::after {
     left: 45%;
   }
@@ -584,7 +607,7 @@ header {
 }
 
 /* Tablets */
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 577px) and (max-width: 768px) {
   .services ul li{
     display: block;
     width: 70%;
@@ -593,7 +616,7 @@ header {
 }
 
 /* Big Tablets */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 769px) and (max-width: 991px) {
   .services ul li{
     display: block;
     width: 80%;
@@ -695,7 +718,7 @@ map iframe{
 }
 
 /* Tablets */
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 577px) and (max-width: 768px) {
   .mapwr {
     height: 500px;
     display: block;
@@ -703,7 +726,7 @@ map iframe{
 }
 
 /* Big Tablets */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 769px) and (max-width: 991px) {
   .mapwr {
     height: 500px;
     display: block;
