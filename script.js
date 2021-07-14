@@ -110,7 +110,7 @@ var popup = document.querySelector('.popup');
 var popupClose = document.querySelector('.close');
 var body = document.querySelector('body');
 
-var responseContainer = document.querySelector('.userResonseData');
+var responseContainer = document.querySelector('.userResponseData');
 // console.log(responseContainer);
 
 popup.addEventListener('click',closePopup);

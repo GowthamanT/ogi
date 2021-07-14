@@ -783,10 +783,10 @@ map iframe{
   cursor: pointer;
 }
 
-.popup-message {
-  height: 60px;
-  padding: 0px 10px;
-  overflow: auto;
+.userResponseData {
+  max-width: 300px;
+  margin: 0px auto 20px;
+  text-align: initial;
 }
 
 .popup-content hr {
@@ -804,7 +804,16 @@ map iframe{
     max-height: 320px;
     max-width:300px;
   }
+  .userResponseData {
+    max-width: 200px;
+  }
   .popup-content hr {
     max-width: 200px;
+  }
+}
+
+@media (min-width: 900px) { 
+  .userResponseData {
+    padding: 0px 20px 0px 20px;
   }
 }
