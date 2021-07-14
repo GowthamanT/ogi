@@ -660,13 +660,13 @@ textarea {
   border:none;
 }
 
-textarea::-webkit-scrollbar {
+textarea::-webkit-scrollbar, .popup-message::-webkit-scrollbar {
   width:5px;
   background-color: white;
   border-radius: 10px;
 }
 
-textarea::-webkit-scrollbar-thumb {
+textarea::-webkit-scrollbar-thumb, .popup-message::-webkit-scrollbar-thumb {
   background-color: var(--primary-design-color);
   border-radius: 20px;
 }
@@ -684,6 +684,7 @@ textarea::-webkit-scrollbar-thumb {
 
 map iframe{
   border: none;
+  pointer-events: none;
 }
 
 @media (max-width: 576px) { 
@@ -710,3 +711,60 @@ map iframe{
 }
 
 
+.popup {
+  position: fixed;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popup-active {
+  visibility: visible;
+  opacity: 1;
+  transition: 600ms ease-out;
+}
+
+.popup-content {
+  max-height: 350px;
+  max-width:500px;
+  margin: auto;
+  background-color: white;
+  color:black;
+  border-radius: 10px;
+  padding:10px 10px 20px;
+}
+
+.close {
+  font-size: 30px;
+  float: right;
+  cursor: pointer;
+}
+
+.popup-message {
+  height: 60px;
+  padding: 0px 10px;
+  overflow: auto;
+}
+
+.popup-content hr {
+  max-width: 300px;
+  margin: 20px auto 0px;
+  background-color: var(--vertical-line);
+}
+
+.overlay-body {
+  overflow: hidden;
+}
+
+@media (max-width: 650px) { 
+  .popup-content {
+    max-height: 320px;
+    max-width:300px;
+  }
+  .popup-content hr {
+    max-width: 200px;
+  }
+}

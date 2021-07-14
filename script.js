@@ -105,10 +105,33 @@ function checkAllValid() {
 var submitBtn = document.getElementById('submit');
 submitBtn.addEventListener("click",submit);
 
+// Popup
+var popup = document.querySelector('.popup');
+var popupClose = document.querySelector('.close');
+var body = document.querySelector('body');
+
+var responseContainer = document.querySelector('.userResonseData');
+// console.log(responseContainer);
+
+popup.addEventListener('click',closePopup);
+popupClose.addEventListener('click',closePopup);
+
+function closePopup() {
+  popup.classList.remove('popup-active');
+  body.classList.remove('overlay-body');
+}
+
+function viewResponseData() {
+  responseContainer.children[0].innerHTML = "Name : " + username.value;
+  responseContainer.children[1].innerHTML = "Email : " + email.value;
+  responseContainer.children[2].innerHTML = message.value;
+}
+
+
 function submit() {
-  console.log("Username : " + username.value);
-  console.log("Email : " + email.value);
-  console.log("Message : " + message.value);
+  popup.classList.add('popup-active');
+  body.classList.add('overlay-body');
+  viewResponseData();
 }
 
 
