@@ -107,14 +107,15 @@ submitBtn.addEventListener("click",submit);
 
 // Popup
 var popup = document.querySelector('.popup');
-var popupClose = document.querySelector('.close');
+var popupBackground = document.querySelector('.popupBackground');
+var popupCloseBtn = document.querySelector('.close');
+
 var body = document.querySelector('body');
 
 var responseContainer = document.querySelector('.userResponseData');
-// console.log(responseContainer);
 
-popup.addEventListener('click',closePopup);
-popupClose.addEventListener('click',closePopup);
+popupBackground.addEventListener('click',closePopup);
+popupCloseBtn.addEventListener('click',closePopup);
 
 function closePopup() {
   popup.classList.remove('popup-active');
@@ -157,11 +158,12 @@ window.addEventListener('scroll', function () {
   blockSections.forEach(sections => {
     if(isVisible(sections)) {
       idValue = sections.getAttribute('id');
-      isSectionVisible();     
+      isSectionVisible(idValue);     
     }
   });
 
 }, false);
+
 
 // Element fully visible in Viewport
 function isInViewPort(element) {
@@ -178,6 +180,7 @@ function isInViewPort(element) {
   }
 }
 
+
 // Element partially visible in Viewport
 function isVisible (ele) {
   const { top, bottom } = ele.getBoundingClientRect();
@@ -192,45 +195,24 @@ function isVisible (ele) {
   else {
     return false;
   }
+
 }
 
-function isSectionVisible() {
 
-  if(idValue=='home') {
-    navLinks[0].classList.add('nav-active');
-  }
-  else {
-    navLinks[0].classList.remove('nav-active');        
-  }
+// Is Section Visible
 
-  if(idValue=='aboutUs') {
-    navLinks[1].classList.add('nav-active');
-  }
-  else {
-    navLinks[1].classList.remove('nav-active');        
-  }
+function isSectionVisible(sectionIdValue) {
 
-  if(idValue=='services') {
-    navLinks[2].classList.add('nav-active');
-  }
-  else {
-    navLinks[2].classList.remove('nav-active');        
+  for(let i=0 ; i<navLinks.length ;i++) {
+    let linkId = navLinks[i].getAttribute("href");
+    if(linkId === ('#'+sectionIdValue)) {
+      navLinks[i].classList.add('nav-active');
+    }
+    else {
+      navLinks[i].classList.remove('nav-active');
+    }
   }
 
-  if(idValue=='jobs') {
-    navLinks[3].classList.add('nav-active');
-  }
-  else {
-    navLinks[3].classList.remove('nav-active');        
-  }
-
-  if(idValue=='contactUs') {
-    navLinks[4].classList.add('nav-active');
-  }
-  else {
-    navLinks[4].classList.remove('nav-active');        
-  }
-  
 }
 
 
@@ -245,7 +227,6 @@ var timelineData3 = document.getElementById('timeline-data3');
 // Timeline slide Animation
 
 var timelineContentWrapper = document.querySelector('.timeline-content-wrapper');
-// console.log(timelineContentWrapper);
 
 timelineData1.addEventListener('click',function () {
   timelineContentChange(0);

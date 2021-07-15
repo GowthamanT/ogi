@@ -28,6 +28,12 @@ input:focus, textarea:focus {
   outline: none;
 }
 
+input:-webkit-autofill {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px  #141720 inset; 
+  box-shadow: 0 0 0px 1000px  #141720 inset;  
+}
+
 
 /***** Font *****/
 
@@ -749,11 +755,6 @@ map iframe{
 
 
 .popup {
-  position: fixed;
-  top:0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
   visibility: hidden;
   opacity: 0;
 }
@@ -761,16 +762,24 @@ map iframe{
 .popup-active {
   visibility: visible;
   opacity: 1;
-  -webkit-transition: 600ms ease-out;
-  -moz-transition: 600ms ease-out;
-  -o-transition: 600ms ease-out;
   transition: 600ms ease-out;
 }
 
+.popup-background {
+  position: fixed;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
 .popup-content {
-  max-height: 350px;
-  max-width:500px;
-  margin: auto;
+  height: 320px;
+  width:500px;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   background-color: white;
   color:black;
   border-radius: 10px;
@@ -783,16 +792,24 @@ map iframe{
   cursor: pointer;
 }
 
-.userResponseData {
-  max-width: 300px;
+.user-response-data {
+  width: 300px;
   margin: 0px auto 20px;
   text-align: initial;
 }
 
 .popup-content hr {
-  max-width: 300px;
+  width: 300px;
   margin: 20px auto 0px;
   background-color: #d4d4d4;
+}
+
+.popup-message {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 .overlay-body {
@@ -801,19 +818,18 @@ map iframe{
 
 @media (max-width: 650px) { 
   .popup-content {
-    max-height: 320px;
-    max-width:300px;
+    width:300px;
   }
-  .userResponseData {
-    max-width: 200px;
+  .user-response-data {
+    width: 200px;
   }
   .popup-content hr {
-    max-width: 200px;
+    width: 200px;
   }
 }
 
 @media (min-width: 900px) { 
-  .userResponseData {
+  .user-response-data {
     padding: 0px 20px 0px 20px;
   }
 }
